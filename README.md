@@ -1,2 +1,2 @@
 # LeetCode
-Repository to track my different LeetCode answers and progression.
+Repository to track LeetCode answers and progression
