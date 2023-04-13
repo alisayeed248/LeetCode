@@ -23,3 +23,23 @@ class Solution {
         } return soln;
     }
 }
+
+// 4/12/23
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // First implementation - check to see if target - nums[i] is in our map
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            // if target - nums[i] is in hashmap, return i and whatever is in hashmap
+            if (map.containsKey(target - nums[i])) {
+                // get returns the value the key is associated with, so make key the number and value the index
+                return new int [] {map.get(target - nums[i]), i};
+            }
+            else {
+                // key, value
+                map.put(nums[i], i); // {(2, 0), }
+            }
+        }
+        return new int [] { };
+    }
+}
