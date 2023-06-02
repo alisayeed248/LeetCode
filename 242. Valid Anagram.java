@@ -17,6 +17,7 @@ class Solution {
     }
 }
 
+// Runtime: 3 ms, Memory: 43.6 MB. Beats 92.10% runtime.
 // Solution 2. HashMap to store character count. Can also consider some form of array of LinkedLists.
 
 class Solution {
@@ -39,6 +40,8 @@ class Solution {
          if (sMap.get(s.charAt(i)) != tMap.get(s.charAt(i))) return false;
     } 
     Works for all test cases except the last one
+    Also this is another way to increment without using merge:
+    map1.put(s.charAt(i),map1.get(s.charAt(i))+1); for the value when you're putting, just get the original value and then add + 1.
     */
   }
 }
