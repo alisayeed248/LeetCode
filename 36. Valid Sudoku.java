@@ -48,3 +48,45 @@ class Solution {
         return false;
     }
 }
+
+// Solution 2
+
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        HashSet<Character> row = new HashSet<>();
+        HashSet<Character> column = new HashSet<>();
+
+        for (int i = 0; i < board.length; i++) {
+            row.clear();
+            column.clear();
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] != '.') {
+                    if (row.contains(board[i][j])) return false;
+                    else row.add(board[i][j]);
+                    if (column.contains(board[j][i])) return false;
+                    else column.add(board[j][i]);
+                }
+            }
+        } 
+
+        for (int i = 0; i < board.length; i+=3) {
+            for (int j = 0; j < board[i].length; j+=3) {
+                if (!checkSquare(i, j, board)) return false;
+            }
+        }
+        return true;
+    }  
+
+    public boolean checkSquare(int row, int column, char[][] board) {
+        HashSet<Character> square = new HashSet<>();
+        for (int i = row; i < row + 3; i++) {
+            for (int j = column; j < column + 3; j++) {
+                if (board[i][j] != '.') {
+                    if (square.contains(board[i][j])) return false;
+                    else square.add(board[i][j]);
+                }
+            }
+        }
+        return true;
+    }
+}
