@@ -1,3 +1,5 @@
+// Soln 1: 
+
 class Solution {
     public int trap(int[] height) {
         int[] maxLeft = new int[height.length];
@@ -25,3 +27,4 @@ class Solution {
         return sum;
     }
 }
+
