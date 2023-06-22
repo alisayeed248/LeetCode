@@ -28,3 +28,29 @@ class Solution {
     }
 }
 
+// Soln 2
+
+class Solution {
+    public int trap(int[] height) {
+        int maxLeft = height[0]; 
+        int maxRight = height[height.length - 1];   
+
+        int leftPointer = 0;
+        int rightPointer = height.length - 1;
+
+        int totalWater = 0;
+        while (leftPointer < rightPointer) {
+            if (maxLeft < maxRight) {
+                leftPointer++;
+                maxLeft = Math.max(maxLeft, height[leftPointer]);
+                totalWater += maxLeft - height[leftPointer];
+            }
+            else {
+                rightPointer--;
+                maxRight = Math.max(maxRight, height[rightPointer]);
+                totalWater += maxRight - height[rightPointer];
+            }
+        }
+        return totalWater;
+    }
+}
